@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mysql-deployment
+  namespace: homework
+  labels:
+    version: "1.0"
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: mysql-operator
+  template:
+    metadata:
+      labels:
+        name: mysql-operator
+    spec:
+      serviceAccountName: mysql-sa
+      containers:
+      - name: mysql-operator
+        image: roflmaoinmysoul/mysql-operator:1.0.0
