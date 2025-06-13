@@ -9,11 +9,15 @@ kind: ClusterRole
 metadata:
   name: mysql-clusterrole
 rules:
-- apiGroups: ["*"]
-  resources: ["*"]
-  verbs: ["*"]
-- nonResourceURLs: ["*"]
-  verbs: ["*"]
+- apiGroups: ["otus.homework"]
+  resources: ["mysqls"]
+  verbs: ["create", "watch", "delete", "list", "patch"]
+- apiGroups: [""]
+  resources: ["events", "persistentvolumes", "persistentvolumeclaims", "services"]
+  verbs: ["create", "delete"]
+- apiGroups: ["apps"]
+  resources: ["deployments/status", "deployments"]
+  verbs: ["create", "delete", "get"]
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
