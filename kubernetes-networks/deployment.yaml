@@ -49,5 +49,3 @@ spec:
       volumes:
       - name: workdir
         emptyDir: {}
-      nodeSelector:
-        homework: 'true'
