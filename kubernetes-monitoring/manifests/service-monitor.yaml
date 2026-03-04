@@ -1,0 +1,13 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: hw-service-montitor
+  namespace: homework
+  labels:
+    release: hw-monitoring
+spec:
+  selector:
+    matchLabels:
+      service: hw-app
+  endpoints:
+  - port: app-metrics-exporter-port

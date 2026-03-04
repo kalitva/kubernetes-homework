@@ -28,5 +28,11 @@ Get your grafana admin user password by running:
 Visit https://github.com/prometheus-operator/kube-prometheus for instructions on how to create & configure Alertmanager and Prometheus instances using the Operator.
 ```
 
-- Создать deployment для приложения ngnix, так же определить контейнер c ngnix-exporter, указав
-ему путь к метрикам приложения. Создать service для этого деплоймента
+- Определить deployment для приложения ngnix, так же определить контейнер c ngnix-exporter, указав
+ему путь к метрикам приложения. 
+
+- Определить service для этого deployment'а. В нем указать порты для приложения и для экспортера,
+указать лэйбл, по которому будет цепляться к сервису serviceMonitor
+
+- Определить serviceMonitor. В нем указать имя порта экспортера метрик, лэйбл сервиса в селекторе.
+Указать лэйбл `release: hw-monitoring`
