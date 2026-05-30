@@ -32,3 +32,11 @@ helm repo add grafana-community https://grafana-community.github.io/helm-charts
 helm repo update
 helm install loki grafana-community/loki -f loki-values.yaml
 ```
+
+- Установить grafana: создать конфиг, добавив настройки `toleration` и `nodeSelector`, создать
+namespace, установить
+```shell
+kubectl create namespace monitoring
+helm install grafana grafana-community/grafana --namespace monitoring -f grafana-values.yaml
+```
+Зайти в интерфейс графаны и добавить datasource, указав url, указанный при установки loki из чарта

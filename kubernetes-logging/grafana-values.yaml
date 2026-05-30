@@ -1,0 +1,7 @@
+tolerations:
+- key: "node-role"
+  value: "infra"
+  operator: "Equal"
+  effect: "NoSchedule"
+nodeSelector:
+  node-role: infra
