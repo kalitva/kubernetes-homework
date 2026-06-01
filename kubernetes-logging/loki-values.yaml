@@ -22,8 +22,7 @@ loki:
           period: 24h
   storage_config:
     aws:
-      region: <AWS region your bucket is in, for example, `eu-west-2`>
-      bucketnames: ys-loki-chunk
+      bucketnames: s3-cluster-logs
       s3forcepathstyle: false
   pattern_ingester:
     enabled: true
@@ -35,12 +34,12 @@ loki:
   storage:
     type: s3
     bucketNames:
-      chunks: ys-loki-chunk
-      ruler: ys-loki-ruler
-      admin: ys-loki-admin
+      chunks: s3-cluster-logs
+      ruler: s3-cluster-logs
+      admin: s3-cluster-logs
     s3:
       # AWS endpoint URL
-      endpoint: storage.yandexcloud.net/s3-cluster-logs
+      endpoint: storage.yandexcloud.net
       secretAccessKey: YCPm_v9XGnYImjSUClwx-2LsSQPji8BkPEJ2Utxb
       accessKeyId: YCAJEx-6PI0Q03fd0YlOXKLhQ
       s3ForcePathStyle: false
