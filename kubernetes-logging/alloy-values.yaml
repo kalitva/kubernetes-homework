@@ -1,0 +1,25 @@
+controller:
+  tolerations:
+  - key: "node-role"
+    value: "infra"
+    operator: "Equal"
+    effect: "NoSchedule"
+
+alloy:
+  configMap:
+    enabled: true
+    content: |
+      discovery.kubernetes "pod" {
+        role = "pod"
+      }
+
+      loki.source.kubernetes "pods" {
+        forward_to = [loki.write.default.receiver]
+        targets = discovery.kubernetes.pod.targets
+      }
+
+      loki.write "default" {
+        endpoint {
+          url = "http://loki-gateway.default.svc.cluster.local/loki/api/v1/push"
+        }
+      }

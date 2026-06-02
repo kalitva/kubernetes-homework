@@ -40,3 +40,10 @@ kubectl create namespace monitoring
 helm install grafana grafana-community/grafana --namespace monitoring -f grafana-values.yaml
 ```
 Зайти в интерфейс графаны и добавить datasource, указав url, указанный при установки loki из чарта
+
+- Сконифигурировать и установить alloy
+```shell
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install --namespace monitoring alloy grafana/alloy -f alloy-values.yaml
+```
