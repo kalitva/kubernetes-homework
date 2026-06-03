@@ -26,7 +26,7 @@ cl1ra555nv6j8v9n2csu-icog   <none>
 marketplace, установить csi driver - *Container Storage Interface for S3*. При установке указать
 ключи и имя хранилища
 
-- Подготовить [values.yaml](./loki-values.yaml) и установить loki командами:
+- Подготовить конифигурацию и установить loki командами:
 ```shell
 helm repo add grafana-community https://grafana-community.github.io/helm-charts
 helm repo update
@@ -47,3 +47,5 @@ helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 helm install --namespace monitoring alloy grafana/alloy -f alloy-values.yaml
 ```
+Убедиться, что логи подов доступны в графане
+![скрин логов](./logs-screen.png)
