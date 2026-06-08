@@ -1,0 +1,14 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: otus
+  namespace: argo-cd
+spec:
+  sourceRepos:
+  - 'https://github.com/kalitva/kubernetes-homework.git'
+  destinations:
+  - server: https://kubernetes.default.svc
+    namespace: homework
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
